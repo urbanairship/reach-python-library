@@ -23,12 +23,10 @@ Here are a few guidelines to get you started:
   Use present tense, semantic newlines, and add a link to your pull request.
 - No contribution is too small; please also submit for typos and grammar mistakes!
 - Don’t break backward compatibility.
-- *Always* add tests and docs for your code.
-  This is a hard rule; patches with missing tests or documentation won’t be merged.
+- *Always* add tests and docs for your code. This is a hard rule; patches with missing tests or documentation won’t be merged.
 - Write `good test docstrings`_.
 - Obey `PEP 8`_ and `PEP 257`_.
-- If you address review feedback, make sure to bump the pull request.
-  Maintainers don’t receive notifications when you push new commits.
+- If you address review feedback, make sure to bump the pull request. Maintainers don’t receive notifications when you push new commits.
 
 
 Thank you for considering contributing to ``uareach``!
