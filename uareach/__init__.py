@@ -1,9 +1,13 @@
 from .core import Reach
 from .common import Unauthorized, ReachFailure
+
+from .projects import (
+    ProjectType,
+)
+
 from .templates import (
     TemplateMetadata,
     TemplateType,
-    ProjectType,
     Type,
     TemplateHeader,
     BarcodeType,

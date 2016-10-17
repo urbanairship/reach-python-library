@@ -4,6 +4,7 @@ from collections import defaultdict
 
 import common
 import uareach.fields as wf
+import uareach.projects as p
 from uareach import util
 
 
@@ -24,17 +25,6 @@ class TemplateMetadata(util.Constant):
     TEMPLATE_ID = 'template_id'
     PROJECT_ID = 'project_id'
     TYPE = 'type_'
-
-
-class ProjectType(util.Constant):
-    """Class representing possible projectTypes."""
-    BOARDING_PASS = 'boardingPass'
-    COUPON = 'coupon'
-    EVENT_TICKET = 'eventTicket'
-    GENERIC = 'generic'
-    LOYALTY = 'loyalty'
-    GIFT_CARD = 'giftCard'
-    MEMBER_CARD = 'memberCard'
 
 
 class TemplateType(util.Constant):
@@ -63,13 +53,13 @@ class Type(util.Constant):
         keys are valid. In other words, these can be used for either
         Apple or Google templates.
     """
-    LOYALTY = (TemplateType.STORE_CARD, ProjectType.LOYALTY)
-    COUPON = (TemplateType.COUPON, ProjectType.COUPON)
-    GIFT_CARD = (TemplateType.STORE_CARD, ProjectType.GIFT_CARD)
-    MEMBER_CARD = (TemplateType.GENERIC, ProjectType.MEMBER_CARD)
-    EVENT_TICKET = (TemplateType.EVENT_TICKET, ProjectType.EVENT_TICKET)
-    BOARDING_PASS = (TemplateType.BOARDING_PASS, ProjectType.BOARDING_PASS)
-    GENERIC = (TemplateType.GENERIC, ProjectType.GENERIC)
+    LOYALTY = (TemplateType.STORE_CARD, p.ProjectType.LOYALTY)
+    COUPON = (TemplateType.COUPON, p.ProjectType.COUPON)
+    GIFT_CARD = (TemplateType.STORE_CARD, p.ProjectType.GIFT_CARD)
+    MEMBER_CARD = (TemplateType.GENERIC, p.ProjectType.MEMBER_CARD)
+    EVENT_TICKET = (TemplateType.EVENT_TICKET, p.ProjectType.EVENT_TICKET)
+    BOARDING_PASS = (TemplateType.BOARDING_PASS, p.ProjectType.BOARDING_PASS)
+    GENERIC = (TemplateType.GENERIC, p.ProjectType.GENERIC)
 
 
 class TemplateHeader(util.Constant):
@@ -910,7 +900,9 @@ class AppleTemplate(Template):
         # Apple-specific validation
         if header == TemplateHeader.BARCODE_TYPE:
             try:
-                self.headers[header]['value'] = BarcodeType.convert_to_apple(value)
+                self.headers[header]['value'] = BarcodeType.convert_to_apple(
+                    value
+                )
             except ValueError:
                 del self.headers[header]
                 raise
@@ -1045,11 +1037,11 @@ class GoogleTemplate(Template):
         payload = super(GoogleTemplate, self)._create_payload()
 
         # Handle type conversions
-        if payload['projectType'] == ProjectType.COUPON:
+        if payload['projectType'] == p.ProjectType.COUPON:
             payload['type'] = TemplateType.OFFER
-        if payload['projectType'] == ProjectType.GIFT_CARD:
+        if payload['projectType'] == p.ProjectType.GIFT_CARD:
             payload['type'] = TemplateType.GIFT_CARD
-        if payload['projectType'] == ProjectType.LOYALTY:
+        if payload['projectType'] == p.ProjectType.LOYALTY:
             payload['type'] = TemplateType.LOYALTY
 
         # Handle standard fields
@@ -1230,7 +1222,9 @@ class GoogleTemplate(Template):
             ... )
         """
         if not body:
-            raise ValueError("The 'body' key must be specified for each message.")
+            raise ValueError(
+                "The 'body' key must be specified for each message."
+            )
 
         payload = {
             'body': body,
@@ -1283,4 +1277,6 @@ class GoogleTemplate(Template):
         if not payload.get(ua.GoogleFieldType.TITLE_MODULE):
             raise ValueError('Must add a title field to the template.')
         if not payload.get(ua.GoogleFieldType.TITLE_MODULE, {}).get('image'):
-            raise ValueError("Must use set_logo_image to set your template's logo image.")
+            raise ValueError(
+                "Must use set_logo_image to set your template's logo image."
+            )
