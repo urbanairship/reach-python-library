@@ -4,6 +4,7 @@ from collections import defaultdict
 
 import common
 import uareach.fields as wf
+import uareach.projects as p
 from uareach import util
 
 
@@ -24,17 +25,6 @@ class TemplateMetadata(util.Constant):
     TEMPLATE_ID = 'template_id'
     PROJECT_ID = 'project_id'
     TYPE = 'type_'
-
-
-class ProjectType(util.Constant):
-    """Class representing possible projectTypes."""
-    BOARDING_PASS = 'boardingPass'
-    COUPON = 'coupon'
-    EVENT_TICKET = 'eventTicket'
-    GENERIC = 'generic'
-    LOYALTY = 'loyalty'
-    GIFT_CARD = 'giftCard'
-    MEMBER_CARD = 'memberCard'
 
 
 class TemplateType(util.Constant):
@@ -63,13 +53,13 @@ class Type(util.Constant):
         keys are valid. In other words, these can be used for either
         Apple or Google templates.
     """
-    LOYALTY = (TemplateType.STORE_CARD, ProjectType.LOYALTY)
-    COUPON = (TemplateType.COUPON, ProjectType.COUPON)
-    GIFT_CARD = (TemplateType.STORE_CARD, ProjectType.GIFT_CARD)
-    MEMBER_CARD = (TemplateType.GENERIC, ProjectType.MEMBER_CARD)
-    EVENT_TICKET = (TemplateType.EVENT_TICKET, ProjectType.EVENT_TICKET)
-    BOARDING_PASS = (TemplateType.BOARDING_PASS, ProjectType.BOARDING_PASS)
-    GENERIC = (TemplateType.GENERIC, ProjectType.GENERIC)
+    LOYALTY = (TemplateType.STORE_CARD, p.ProjectType.LOYALTY)
+    COUPON = (TemplateType.COUPON, p.ProjectType.COUPON)
+    GIFT_CARD = (TemplateType.STORE_CARD, p.ProjectType.GIFT_CARD)
+    MEMBER_CARD = (TemplateType.GENERIC, p.ProjectType.MEMBER_CARD)
+    EVENT_TICKET = (TemplateType.EVENT_TICKET, p.ProjectType.EVENT_TICKET)
+    BOARDING_PASS = (TemplateType.BOARDING_PASS, p.ProjectType.BOARDING_PASS)
+    GENERIC = (TemplateType.GENERIC, p.ProjectType.GENERIC)
 
 
 class TemplateHeader(util.Constant):
