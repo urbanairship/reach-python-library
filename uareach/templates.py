@@ -900,7 +900,9 @@ class AppleTemplate(Template):
         # Apple-specific validation
         if header == TemplateHeader.BARCODE_TYPE:
             try:
-                self.headers[header]['value'] = BarcodeType.convert_to_apple(value)
+                self.headers[header]['value'] = BarcodeType.convert_to_apple(
+                    value
+                )
             except ValueError:
                 del self.headers[header]
                 raise
@@ -1035,11 +1037,11 @@ class GoogleTemplate(Template):
         payload = super(GoogleTemplate, self)._create_payload()
 
         # Handle type conversions
-        if payload['projectType'] == ProjectType.COUPON:
+        if payload['projectType'] == p.ProjectType.COUPON:
             payload['type'] = TemplateType.OFFER
-        if payload['projectType'] == ProjectType.GIFT_CARD:
+        if payload['projectType'] == p.ProjectType.GIFT_CARD:
             payload['type'] = TemplateType.GIFT_CARD
-        if payload['projectType'] == ProjectType.LOYALTY:
+        if payload['projectType'] == p.ProjectType.LOYALTY:
             payload['type'] = TemplateType.LOYALTY
 
         # Handle standard fields
@@ -1220,7 +1222,9 @@ class GoogleTemplate(Template):
             ... )
         """
         if not body:
-            raise ValueError("The 'body' key must be specified for each message.")
+            raise ValueError(
+                "The 'body' key must be specified for each message."
+            )
 
         payload = {
             'body': body,
@@ -1273,4 +1277,6 @@ class GoogleTemplate(Template):
         if not payload.get(ua.GoogleFieldType.TITLE_MODULE):
             raise ValueError('Must add a title field to the template.')
         if not payload.get(ua.GoogleFieldType.TITLE_MODULE, {}).get('image'):
-            raise ValueError("Must use set_logo_image to set your template's logo image.")
+            raise ValueError(
+                "Must use set_logo_image to set your template's logo image."
+            )
