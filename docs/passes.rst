@@ -84,7 +84,7 @@ To get `a list of passes`_, use the ``PassList`` class:
 
    client = ua.Reach('email', 'api_key')
 
-   pass_list = ua.TemplateList(client)
+   pass_list = ua.PassList(client)
 
    for pass_ in pass_list:
       print pass_
