@@ -38,5 +38,5 @@ To get started, simply import the library and set up a client:
    my_pass = ua.get_pass(client, pass_id=12345)
 
 For more details on using the library, please see the `full documentation
-<http://docs.urbanairship.com/reference/libraries>`__, as well as the
+<https://docs.urbanairship.com/api/libraries/reach/python/>`__, as well as the
 `Urban Airship API Documentation <http://docs.urbanairship.com/api/wallet.html>`__.
