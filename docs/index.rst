@@ -1,5 +1,5 @@
 ##################################
-Urban Airship Reach Python Library
+Airship Wallet Python Library
 ##################################
 
 

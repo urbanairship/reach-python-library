@@ -41,8 +41,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Urban Airship Reach Python Library'
-copyright = u'2015, Urban Airship'
+project = u'Airship Wallet Python Library'
+copyright = u'2019, Airship'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
