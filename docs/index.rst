@@ -1,6 +1,6 @@
-##################################
-Urban Airship Reach Python Library
-##################################
+#############################
+Airship Wallet Python Library
+#############################
 
 
 ************
@@ -25,7 +25,7 @@ configured otherwise, your application can set it up like so:
    import logging
    logging.basicConfig()
 
-If you're having trouble with the Reach API, you can turn on verbose debug
+If you're having trouble with the Wallet API, you can turn on verbose debug
 logging.
 
 .. code-block:: python
