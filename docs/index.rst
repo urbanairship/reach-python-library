@@ -77,4 +77,4 @@ Walkthroughs
 
    creating-templates
 
-.. _github: https://github.com/urbanairship/uareach-python-library
+.. _github: https://github.com/urbanairship/reach-python-library
