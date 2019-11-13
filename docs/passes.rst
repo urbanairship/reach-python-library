@@ -82,13 +82,13 @@ To get `a list of passes`_, use the ``PassList`` class:
 
    import uareach as ua
 
+
    client = ua.Reach('email', 'api_key')
 
    pass_list = ua.PassList(client)
 
    for pass_ in pass_list:
       print pass_
-
 
 
 ***********
@@ -116,6 +116,7 @@ To `add locations to a pass`, use the ``add_pass_locations`` function:
 .. code-block:: python
 
    import uareach as ua
+
 
    client = ua.Reach('email', 'api_key')
 
@@ -158,14 +159,13 @@ To `delete a location from a pass`, use the ``delete_pass_location`` method:
 
    client = ua.Reach('email', 'api_key')
 
-
    ua.delete_pass_location(client, 1234567, pass_id=52431)
 
 
-.. _create a pass: http://docs.urbanairship.com/api/wallet.html#create-pass
-.. _update a pass: http://docs.urbanairship.com/api/wallet.html#update-pass
-.. _get a pass: http://docs.urbanairship.com/api/wallet.html#get-pass
-.. _a list of passes: http://docs.urbanairship.com/api/wallet.html#list-passes
-.. _delete a pass: http://docs.urbanairship.com/api/wallet.html#delete-pass
-.. _add locations to a pass: http://docs.urbanairship.com/api/wallet.html#add-locations-to-pass
-.. _delete a location from a pass: http://docs.urbanairship.com/api/wallet.html#delete-location-from-pass
+.. _create a pass: https://docs.airship.com/api/wallet/#createpass
+.. _update a pass: https://docs.airship.com/api/wallet/#updatepass
+.. _get a pass: https://docs.airship.com/api/wallet/#getpass
+.. _a list of passes: https://docs.airship.com/api/wallet/#getpasses
+.. _delete a pass: https://docs.airship.com/api/wallet/#deletepass
+.. _add locations to a pass: https://docs.airship.com/api/wallet/#addlocationstopass
+.. _delete a location from a pass: https://docs.airship.com/api/wallet/#deletelocationfrompass

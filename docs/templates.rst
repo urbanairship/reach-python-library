@@ -78,6 +78,7 @@ To `update a template`, use the ``Template`` class' ``update`` method:
 
    import uareach as ua
 
+
    client = ua.Reach('email', 'api_key')
 
    # 1. Get a template to update
@@ -108,6 +109,7 @@ To `get a template`_, use the ``get_template`` function:
 
    import uareach as ua
 
+
    client = ua.Reach('email', 'api_key')
    my_template = ua.get_template(client, template_id=12345)
 
@@ -121,6 +123,7 @@ To get `a list of templates`_, use the ``TemplateList`` class:
 .. code-block:: python
 
    import uareach as ua
+
 
    client = ua.Reach('email', 'api_key')
 
@@ -145,14 +148,13 @@ To `delete a template`_,  use the ``delete_template`` function:
    response = ua.delete_template(client, template_id=12345)
 
 
-
 ********************
 Duplicate a Template
 ********************
 
 .. note::
 
-   Currently, this API call only works with Apple templates
+   Currently, this API call only works with iOS templates
 
 To `duplicate a template`_, use the ``duplicate_template`` function.  This will
 put the newly created template in the same project as the original:
@@ -219,10 +221,10 @@ To `remove a location from a template`_, use the ``remove_template_location`` fu
       client, 12345678, template_id=12345
    )
 
-.. _create a template: http://docs.urbanairship.com/api/wallet.html#create-template
-.. _get a template: http://docs.urbanairship.com/api/wallet.html#get-template
-.. _a list of templates: http://docs.urbanairship.com/api/wallet.html#list-passes
-.. _delete a template: http://docs.urbanairship.com/api/wallet.html#delete-template
-.. _duplicate a template: http://docs.urbanairship.com/api/wallet.html#duplicate-template
-.. _add locations to a template: http://docs.urbanairship.com/api/wallet.html#add-locations-to-template
-.. _remove a location from a template: http://docs.urbanairship.com/api/wallet.html#delete-location-from-template
+.. _create a template: https://docs.airship.com/api/wallet/#createtemplate
+.. _get a template: https://docs.airship.com/api/wallet/#gettemplate
+.. _a list of templates: https://docs.airship.com/api/wallet/#listtemplates
+.. _delete a template: https://docs.airship.com/api/wallet/#deletetemplate
+.. _duplicate a template: https://docs.airship.com/api/wallet/#duplicatetemplate
+.. _add locations to a template: https://docs.airship.com/api/wallet/#addlocationstotemplate
+.. _remove a location from a template: https://docs.airship.com/api/wallet/#deletelocationfromtemplate
